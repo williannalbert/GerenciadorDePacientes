@@ -53,6 +53,15 @@ builder.Services.AddAutoMapper(typeof(PacienteProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -71,6 +80,8 @@ using (var scope = app.Services.CreateScope())
 app.UseHttpsRedirection();
 
 app.UseMiddleware<ErrorMiddleware>();
+
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

@@ -20,7 +20,7 @@ public class PacienteService(IMapper _mapper, IUnitOfWork _unitOfWork) : IPacien
             if (string.IsNullOrEmpty(novoPacienteDTO.Celular) && string.IsNullOrEmpty(novoPacienteDTO.TelefoneFixo))
                 throw new Exception("Telefone ou Celular deve ser preenchido");
 
-            var pacienteExiste = await _unitOfWork.PacienteRepository.GetAsync(p => p.CPF == novoPacienteDTO.CPF);
+            var pacienteExiste = await _unitOfWork.PacienteRepository.GetAsync(p => p.CPF == novoPacienteDTO.CPF && novoPacienteDTO.CPF != null);
             if (pacienteExiste is not null)
                 throw new Exception("Paciente já cadastrado");
 

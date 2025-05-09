@@ -15,12 +15,12 @@ public class Paciente
     public string Sobrenome { get; set; } = null!;
     public DateTime DataNascimento { get; set; }
     public Genero Genero { get; set; }
-    public string CPF { get; set; } = null!;
-    public string RG { get; set; } = null!;
+    public string? CPF { get; set; }
+    public string RG { get; set; } = null!; 
     public Estado Estado { get; set; }
     public string Email { get; set; } = null!;
-    public string Celular { get; set; } = null!;
-    public string TelefoneFixo { get; set; }
+    public string? Celular { get; set; }
+    public string? TelefoneFixo { get; set; }
     public Guid ConvenioId { get; set; }
     public Convenio Convenio { get; set; }
     public string NumeroCarteirinha { get; set; } = null!;

@@ -27,10 +27,10 @@ public class AppDbContext : DbContext
 
             entity.Property(p => p.Nome).IsRequired().HasMaxLength(100);
             entity.Property(p => p.Sobrenome).IsRequired().HasMaxLength(255);
-            entity.Property(p => p.CPF).IsRequired().HasMaxLength(11);
+            entity.Property(p => p.CPF).HasMaxLength(11);
             entity.Property(p => p.RG).IsRequired().HasMaxLength(20);
             entity.Property(p => p.Email).IsRequired().HasMaxLength(100);
-            entity.Property(p => p.Celular).IsRequired().HasMaxLength(11);
+            entity.Property(p => p.Celular).HasMaxLength(11);
             entity.Property(p => p.TelefoneFixo).HasMaxLength(10);
             entity.Property(p => p.NumeroCarteirinha).IsRequired().HasMaxLength(30);
             entity.Property(p => p.ValidadeCarteirinha).IsRequired().HasMaxLength(5);
